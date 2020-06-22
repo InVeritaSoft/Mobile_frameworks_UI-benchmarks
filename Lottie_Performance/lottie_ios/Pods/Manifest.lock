@@ -1,0 +1,16 @@
+PODS:
+  - GridView (0.1.3)
+
+DEPENDENCIES:
+  - GridView
+
+SPEC REPOS:
+  trunk:
+    - GridView
+
+SPEC CHECKSUMS:
+  GridView: df9bb15be23d674b8797a972c04de30b7bf665c0
+
+PODFILE CHECKSUM: 3277415dd7d06497d483a6ba48bf9dda677aa88e
+
+COCOAPODS: 1.8.1

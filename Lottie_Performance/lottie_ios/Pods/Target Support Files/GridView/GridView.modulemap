@@ -1,0 +1,6 @@
+framework module GridView {
+  umbrella header "GridView-umbrella.h"
+
+  export *
+  module * { export * }
+}
