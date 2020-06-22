@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'aticle_demo_ios' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for aticle_demo_ios
+  #pod "Nuke"
+  pod "SDWebImage"
+
+  target 'aticle_demo_iosTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'aticle_demo_iosUITests' do
+    # Pods for testing
+  end
+
+end
