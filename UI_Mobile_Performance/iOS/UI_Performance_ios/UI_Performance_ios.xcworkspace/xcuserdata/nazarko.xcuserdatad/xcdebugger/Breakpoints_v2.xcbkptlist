@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9E7FD638-0F00-4B4B-BA82-08C6E2FC33E7"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4EB92F10-A8FD-4A22-A432-FAD37E37620C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI_Performance_ios/TableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "configurateTheCell(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9940313-C456-4781-8BF4-DD71CA6330BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI_Performance_ios/TableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "downloadImage(item:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A9940313-C456-4781-8BF4-DD71CA6330BB - 67c8c6e2585d515b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_Performance_ios.TableCell.downloadImage(item: UI_Performance_ios.Item) -&gt; ()"
+                  moduleName = "UI_Performance_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarko/FlutterProjects/UI_Mobile_Performance/iOS/UI_Performance_ios/UI_Performance_ios/TableCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "194">
+               </Location>
+               <Location
+                  uuid = "A9940313-C456-4781-8BF4-DD71CA6330BB - 67c8c6e2585d515b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_Performance_ios.TableCell.downloadImage(item: UI_Performance_ios.Item) -&gt; ()"
+                  moduleName = "UI_Performance_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarko/FlutterProjects/UI_Mobile_Performance/iOS/UI_Performance_ios/UI_Performance_ios/TableCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "288">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09F0ACED-C4DE-4BC1-9545-6F2C3353F83D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI_Performance_ios/TableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "TableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "09F0ACED-C4DE-4BC1-9545-6F2C3353F83D - f470a6e58aaa0a1e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_196CD832E2A2EFCFB4FA5BD44D13AEA2_func0"
+                  moduleName = "UI_Performance_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarko/FlutterProjects/UI_Mobile_Performance/iOS/UI_Performance_ios/UI_Performance_ios/TableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  uuid = "09F0ACED-C4DE-4BC1-9545-6F2C3353F83D - 40436080683ccc3d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_Performance_ios.TableViewController.cache.unsafeMutableAddressor : __C.NSCache&lt;__C.NSString, __C.UIImage&gt;"
+                  moduleName = "UI_Performance_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarko/FlutterProjects/UI_Mobile_Performance/iOS/UI_Performance_ios/UI_Performance_ios/TableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "09F0ACED-C4DE-4BC1-9545-6F2C3353F83D - 1fcfceb22950e3e8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static UI_Performance_ios.TableViewController.cache.getter : __C.NSCache&lt;__C.NSString, __C.UIImage&gt;"
+                  moduleName = "UI_Performance_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarko/FlutterProjects/UI_Mobile_Performance/iOS/UI_Performance_ios/UI_Performance_ios/TableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

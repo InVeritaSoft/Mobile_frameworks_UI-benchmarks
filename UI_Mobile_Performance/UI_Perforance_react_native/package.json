@@ -1,0 +1,49 @@
+{
+  "name": "untitled",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "E2E_DEVICE=\"*\" jest --testMatch=\"**/__tests__/**/!(*e2e.js)\"",
+    "start:appium": "appium",
+    "test:e2e": "jest --testMatch=\"**/__tests__/**/*e2e.js\"",
+    "test:e2e:android": "E2E_DEVICE=\"android-emulator\" npm run test:e2e",
+    "test:e2e:ios": "E2E_DEVICE=\"ios-emulator\"  npm run test:e2e"
+  },
+  "dependencies": {
+    "appium": "^1.17.0",
+    "appium-doctor": "^1.15.0",
+    "react": "16.11.0",
+    "react-native": "0.62.0",
+    "react-native-fast-image": "^8.1.5",
+    "wd": "^1.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
+    "@react-native-community/eslint-config": "^1.0.0",
+    "babel-jest": "^25.2.4",
+    "eslint": "^6.8.0",
+    "jest": "^25.2.4",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.11.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "e2e": {
+    "devices": {
+      "ios-emulator": {
+        "platformName": "iOS",
+        "platformVersion": "13.3",
+        "deviceName": "iPhone 11",
+        "app": "/Users/nazarko/Library/Developer/Xcode/DerivedData/untitled-hjltncatuzipcseoyhknryobmjhe/Build/Products/Release-iphonesimulator/untitled.app"
+      },
+      "android-emulator": {
+        "platformName": "Android",
+        "deviceName": "Redmi Note 5",
+        "app": "/Users/nazarko/FlutterProjects/UI_Mobile_Performance/UI_Perforance_react_native/android/app/build/outputs/apk/debug/app-debug.apk"
+      }
+    }
+  }
+}

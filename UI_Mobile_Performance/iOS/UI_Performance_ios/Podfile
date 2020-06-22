@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'UI_Performance_ios' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  
+  pod 'Nuke', '~> 9.0.0-beta.2'
+
+  # Pods for UI_Performance_ios
+
+  target 'UI_Performance_iosTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'UI_Performance_iosUITests' do
+    # Pods for testing
+  end
+
+end
