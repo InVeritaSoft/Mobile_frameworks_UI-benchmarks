@@ -6,23 +6,17 @@
  * @flow strict-local
  */
 
-import React, {Component, useRef, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  FlatList,
-  StatusBar,
-  Image,
-  Text,
-  Dimensions,
-  Animated,
-  Easing,
-} from 'react-native';
-
+import React, {useEffect} from 'react';
+import {StyleSheet, FlatList, Dimensions} from 'react-native';
 import FastImage from 'react-native-fast-image';
-
-const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+import Animated, {
+  cancelAnimation,
+  Easing,
+  repeat,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 const IMAGES = {
   image0: require('./images/0.jpeg'),
@@ -59,157 +53,74 @@ for (var i = 0; i < data.length; i++) {
   };
 }
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <FlatList
-          data={data}
-          // renderItem={({item}) => (
-          //   <View style={{flex: 1, flexDirection: 'column', margin: 1}}>
-          //     <Image
-          //       style={styles.imageThumbnail}
-          //       source={item.src}
-          //       resizeMode="cover"
-          //     />
-          //   </View>
-          // )}
-          renderItem={({item}) => {
-            let index = item.key % 3;
-            let spinValue = new Animated.Value(0);
-            if (index == 0) {
-              let spin = spinValue.interpolate({
-                inputRange: [0, 360],
-                outputRange: ['0deg', '360deg'],
-              });
-              let transform = [{rotate: spin}];
-              return (
-                <CustomRow
-                  index={item.key}
-                  useNativeDriver={true}
-                  transform={transform}
-                  spinValue={spinValue}>
-                  {' '}
-                </CustomRow>
-              );
-            }
-            if (index == 1) {
-              let spin = spinValue.interpolate({
-                inputRange: [0, 360],
-                outputRange: [0.0, 1.0],
-              });
-              let transform = [{scale: spin}];
-              return (
-                <CustomRow
-                  index={item.key}
-                  useNativeDriver={true}
-                  transform={transform}
-                  spinValue={spinValue}>
-                  {' '}
-                </CustomRow>
-              );
-            }
-            if (index == 2) {
-              return (
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}>
-                  <FadeInView
-                    style={{
-                      height: Dimensions.get('window').width / 10,
-                      width: Dimensions.get('window').width / 10,
-                      backgroundColor: 'powderblue',
-                    }}>
-                    <Image
-                      style={styles.imageThumbnail}
-                      source={item.src}
-                      resizeMode="cover"
-                    />
-                  </FadeInView>
-                </View>
-              );
-            }
-          }}
-          numColumns={10}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </SafeAreaView>
-    </>
-  );
-};
+const App = () => (
+  <>
+    <FlatList
+      data={data}
+      numColumns={10}
+      keyExtractor={(_, index) => index.toString()}
+      renderItem={({item}) => {
+        let index = item.key % 3;
+        return (
+          <Tile
+            data={item}
+            isSpin={index === 0}
+            isScale={index === 1}
+            isFade={index === 2}
+          />
+        );
+      }}
+    />
+  </>
+);
 
-const FadeInView = (props) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+const Tile = ({data, isSpin, isScale, isFade}) => {
+  const anim = useSharedValue(0);
 
-  React.useEffect(() => {
-    Animated.loop(
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 5000,
-        easing: Easing.linear,
-        useNativeDriver: true,
-      }),
-    ).start();
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: isSpin
+        ? [{rotate: `${anim.value}deg`}]
+        : isScale
+        ? [{scale: anim.value}]
+        : undefined,
+      opacity: isFade ? anim.value : undefined,
+    };
+  });
+
+  useEffect(() => {
+    anim.value = repeat(
+      withTiming(isSpin ? 360 : 1, {duration: 5000, easing: Easing.linear}),
+      -1,
+      !isSpin,
+    );
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      cancelAnimation(anim);
+    };
   }, []);
 
   return (
-    <Animated.View // Special animatable View
-      style={{
-        ...props.style,
-        opacity: fadeAnim, // Bind opacity to animated value
-      }}>
-      {props.children}
+    <Animated.View
+      style={[
+        {
+          height: Dimensions.get('window').width / 10,
+          width: Dimensions.get('window').width / 10,
+          backgroundColor: 'powderblue',
+        },
+        animatedStyle,
+      ]}>
+      <FastImage
+        style={styles.imageThumbnail}
+        source={data.src}
+        resizeMode="cover"
+        fadeDuration={0}
+      />
     </Animated.View>
   );
 };
-
-class CustomRow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: props.index,
-      //spin: props.spin,
-      spinValue: props.spinValue,
-      transform: props.transform,
-      useNativeDriver: props.useNativeDriver,
-    };
-  }
-
-  render() {
-    return (
-      <AnimatedFastImage
-        style={{
-          transform: this.state.transform,
-          height: Dimensions.get('window').width / 10,
-          width: Dimensions.get('window').width / 10,
-        }}
-        source={getImage(this.state.index)}
-        resizeMode={'cover'}
-        fadeDuration={0}
-      />
-    );
-  }
-
-  componentDidMount() {
-    this.animation = Animated.loop(
-      Animated.timing(this.state.spinValue, {
-        toValue: 360,
-        duration: 5000,
-        easing: Easing.linear,
-        useNativeDriver: this.state.useNativeDriver,
-      }),
-    ).start();
-  }
-
-  componentWillUnmount() {
-    this.state.spinValue.stopAnimation();
-    this.animation
-  }
-}
 
 const styles = StyleSheet.create({
   imageThumbnail: {
